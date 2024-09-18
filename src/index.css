@@ -1,0 +1,157 @@
+:root {
+  /* Tipografía principal */
+  font-family: 'Inter', 'Lato', sans-serif;
+  font-weight: 400;
+
+  /* Color y esquema de fondo */
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  
+  /* Gradiente suave y moderno */
+  background: linear-gradient(145deg, #e0c3fc 0%, #8ec5fc 100%);
+  
+  /* Optimización de fuentes */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  /* Estilos generales */
+  --main-text-color: #eee;
+  --secondary-text-color: #bbb;
+  --button-border-color: #eee;
+  --button-hover-bg-color: #eee;
+  --button-hover-text-color: #222;
+  --square-bg-color: rgb(200, 255, 0);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--background-gradient);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.board {
+  width: fit-content;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.board h1 {
+  color: var(--main-text-color);
+  font-size: 3rem;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.board button {
+  padding: 12px 16px;
+  margin: 25px;
+  background: transparent;
+  border: 2px solid var(--button-border-color);
+  color: var(--main-text-color);
+  width: 120px;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.board button:hover {
+  background: var(--button-hover-bg-color);
+  color: var(--button-hover-text-color);
+  transform: translateY(-3px);
+}
+
+.board .game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.turn {
+  display: flex;
+  justify-content: center;
+  margin: 15px auto;
+  width: fit-content;
+  position: relative;
+  border-radius: 10px;
+}
+
+.turn .square,
+.winner .square {
+  width: 70px;
+  height: 70px;
+  pointer-events: none;
+  border-color: transparent;
+}
+
+.square.is-selected {
+  background: var(--square-bg-color);
+  color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.winner {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #e0c3fc 0%, #8ec5fc 100%);
+}
+
+.winner .text {
+  background: linear-gradient(145deg, #e0c3fc 0%, #8ec5fc 100%);
+  height: 300px;
+  width: 320px;
+  border: 2px solid var(--button-border-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.winner .win {
+  margin: 0 auto;
+  width: fit-content;
+  border: 2px solid var(--button-border-color);
+  border-radius: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--button-border-color);
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 48px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.square:hover {
+  background: var(--button-hover-bg-color);
+  color: var(--button-hover-text-color);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
